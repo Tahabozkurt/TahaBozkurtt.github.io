@@ -7,7 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['message']);
 
     // Hedef e-posta adresi (gönderilecek kişi)
-    $to = "your_email@example.com"; // Kendi e-posta adresinizi yazın
+    $to = "taabzkrt@gmail.com"; // Burada e-postanız tanımlı
+
+    // E-posta konusu
     $subject = "New Contact Form Message";
 
     // E-posta içeriği
@@ -19,13 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // E-posta başlıkları
     $headers = "From: $email";
 
-    // E-posta gönderme
+    // E-posta gönderme işlemi
     if (mail($to, $subject, $email_content, $headers)) {
         // Başarılı mesajı
-        echo "Thank you! Your message has been sent.";
+        echo "<div style='color: green;'>Thank you! Your message has been sent.</div>";
     } else {
         // Hata mesajı
-        echo "Unable to send your message. Please try again.";
+        echo "<div style='color: red;'>Unable to send your message. Please try again.</div>";
     }
 } else {
     echo "Invalid request method.";
